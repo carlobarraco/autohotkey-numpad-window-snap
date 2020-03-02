@@ -5,8 +5,9 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 PositionActiveWindow(X,Y,W,H)
 {
+    WinGetPos,,,_w_, _h_, ahk_class Shell_TrayWnd
     WinGetActiveTitle, WinTitle
-    WinMove, %WinTitle%,,X * (A_ScreenWidth/2),Y*(A_ScreenHeight/2),W*A_ScreenWidth/2,H*A_ScreenHeight/2
+    WinMove, %WinTitle%,,X * (A_ScreenWidth/2),Y*((A_ScreenHeight-_h_)/2),W*A_ScreenWidth/2,H*((A_ScreenHeight-_h_)/2)
 }
 
 #Numpad7::
